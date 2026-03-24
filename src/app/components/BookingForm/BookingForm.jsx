@@ -18,7 +18,7 @@ export default function BookingForm() {
   }, [])
 
   const { register, handleSubmit, formState: { errors }} = useForm({
-    resolver: zodResolver(createBookingSchema())
+    resolver: zodResolver(createBookingSchema(slots))
   })
 
   const onSubmit = () => alert("Booking successful!");
@@ -38,7 +38,7 @@ export default function BookingForm() {
           Booker Email
         </label>
         <input id="bookerEmail" name="bookerEmail" className={styles.input} type="email" {...register('bookerEmail')}/>
-        <ErrorMessage message={errors.bookerName?.message} />
+        <ErrorMessage message={errors.bookerEmail?.message} />
       </div>
 
       <div className={styles.inputGroup}>
